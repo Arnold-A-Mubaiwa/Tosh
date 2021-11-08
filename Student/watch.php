@@ -88,9 +88,6 @@ if ($result1 = mysqli_query($conn, $sql)) {
     //  echo "<div class='col-sm'>";
     echo "<iframe width='100%' height='415' src='" . $row['Link'] . "?rel=0' title='" . $row['Module'] . "' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
     echo "</div>";
-    echo "<div class='row pt-2'>";
-    echo "<div class='col-sm'><button class='btn btn-dark border' data-toggle='modal' data-target='#exampleModalScrollable'>" . $comments . " Comments</<button></div>";
-    echo "</div>";
     ?>
 
     <?php
@@ -103,33 +100,33 @@ if ($result1 = mysqli_query($conn, $sql)) {
     echo "</div>";
     echo "</div>";
     echo "<div class='row'>";
-    echo "<p class='p-3 text-justify'>" . $row['Description'] . "</p>";
+    echo "<p class='p-3 text-justify'>" . $row['Descrip'] . "</p>";
     echo "</div>";
     ?>
-    <div class="row border-top pt-4">
-        <div class="col m-2 pt-3 border">
-            <h5 class=" text-uppercase">Notes</h5>
-            <p>
-                <?php
-                echo $row['Notes'];
-                ?>
-            </p>
-        </div>
-    </div>
-    <div class="row border-top mt-1 pt-4 mb-2">
-        <div class="col m-2 pt-3 border">
-            <h5 class=" text-uppercase">Exercise</h5>
-            <p>
-                <?php
-                echo $row['Notes'];
-                ?>
-            </p>
-        </div>
+    <div class="row border-top pt-4 ">
+        <div class="col m-2 pt-3 pb-4 border">
+            <?php
+        echo "<div class='col-sm'><button class='btn btn-dark border' data-toggle='modal' data-target='#exampleModalScrollable'>" . $comments . " Comments</<button></div>";
+      ?></div>
+      <div>
+          <form>
+              <input type="checkbox" name="" id="">By Clicking this checkbox you acknoledge that you have watched this video<br>
+              <input type="submit" value="Confirm">
+          </form>
+      </div>
     </div>
     <?php
     echo "</div>";
     echo "</div>";
     ?>
+    <div class="row ml-5 pl-5 text-justify">
+        <div class="col m-5 pl-5">
+            <h4>Notes</h4>
+            <?php
+echo $row['Notes'];
+            ?>
+        </div>
+    </div>
     <?php
 
     if (isset($_POST['comment'])) {

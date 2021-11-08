@@ -16,7 +16,7 @@ include_once(ROOT_PATH . '/include/navbar.php');
 
  $year=$_SESSION['login_year'];
  $faculty = $_SESSION['login_Faculty'];
-$sql = "SELECT * FROM Videos";
+$sql = "SELECT * FROM Videos Where Statuses = 'Active' and Faculty = '$faculty'";
 // and Faculty=$faculty DESC Date
 if ($result = mysqli_query($conn, $sql)) { 
     if (mysqli_num_rows($result) > 0) {
@@ -33,7 +33,7 @@ if ($result = mysqli_query($conn, $sql)) {
             echo "<a class='btn btn-dark border' href='watch.php?PostID=". $row['PostID'] ."'>Watch Video</a></div>";
             echo "</div>";
             echo "<div class='row'>";
-            echo "<p class='p-3 h5 text-justify'>" . $row['Description'] . "</p>";
+            echo "<p class='p-3 h5 text-justify'>" . $row['Descrip'] . "</p>";
             echo "</div>";
             echo "</div>";
             echo "</div>";

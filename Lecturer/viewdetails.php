@@ -51,7 +51,7 @@ if (isset($_POST['comment'])) {
 $sql = "SELECT * FROM Comments Where PostID = $PostID";
 $comments =  0;
 if ($result1 = mysqli_query($conn, $sql)) {
-    if (mysqli_num_rows($result1) > 0) {
+   
 ?>
         <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -89,7 +89,7 @@ if ($result1 = mysqli_query($conn, $sql)) {
         </div>
 <?php
     }
-}
+
 ?>
 <div class="container bg-dark text-light">
 <?php
@@ -128,7 +128,7 @@ echo "</div><div class='col d-flex'>";
 echo "</div>";
 echo "</div>";
 echo "<div class='row border m-2'>";
-echo "<p class='p-3 h5 text-justify'>" . $row['Description'] . "</p>";
+echo "<p class='p-3 h5 text-justify'>" . $row['Descrip'] . "</p>";
 echo "</div>";
 ?>
 <div class="row  m-2 pt-4">
@@ -142,8 +142,8 @@ echo "</div>";
     </div>
 </div>
 <div class="row text-justify p-3 m-2 border">
-    <p class="text-left h5 <?php if($row['Status']=='Active'){echo 'text-success';} else {echo 'text-danger';} ?>">
-        Status : <?php echo $row['Status'] ?>
+    <p class="text-left h5 <?php if($row['Statuses']=='Active'){echo 'text-success';} else {echo 'text-danger';} ?>">
+        Status : <?php echo $row['Statuses'] ?>
     </p>
 </div>
 <?php

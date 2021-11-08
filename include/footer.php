@@ -11,5 +11,7 @@
 <!-- Plugins.js -->
 <script src="<?php echo BASE_URL . '/assests/js/plugins.js' ?>"></script>
 <script src="<?php echo BASE_URL . '/assests/js/main.js' ?>"></script>
+<script src="<?php echo BASE_URL . '/assests/js/ckeditor.js' ?>"></script>
+
 </body>
 </html>

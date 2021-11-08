@@ -5,7 +5,7 @@ if (count($_POST) > 0) {
 
     $UniqueNo = abs(crc32(uniqid()));
    
-    $sql = "INSERT INTO Videos(PostID,Module, Link,Description,UserID,Year,Faculty,Status)VALUES ('" . $UniqueNo . "','" . $_POST['Module'] . "','" . $_POST['Link'] . "','" . $_POST['Description'] . "','" . $UserID . "','" . $_POST['Year'] . "','" . $_POST['Faculty'] . "','" . $_POST['Status'] . "')";
+    $sql = "INSERT INTO Videos(PostID,Module, Link,Descrip,Notes,UserID,Year,Faculty,Statuses)VALUES ('" . $UniqueNo . "','" . $_POST['Module'] . "','" . $_POST['Link'] . "','" . $_POST['Description'] . "','" . $_POST['notes'] . "','" . $UserID . "','" . $_POST['Year'] . "','" . $_POST['Faculty'] . "','" . $_POST['Status'] . "')";
     
     if (mysqli_query($conn, $sql)) {
         echo "<div class='text-light'> Lecturer Added</div>";
@@ -38,6 +38,9 @@ include_once(ROOT_PATH . '/include/navbar.php');
                     <div class="form-group"> <label for="Description">Description</label>
                         <input class="form-control border-dark" type="text" name="Description" required><br>
                     </div>
+                    <div class="form-group"> <label for="Notes">Notes</label>
+                    <textarea name="notes" id="notes" class="form-control"></textarea>
+                    </div>
                     <div class="form-group"><label for="Year">Year Of Study</label>
                     <select name="Year" class="form-control border-dark">
                             <option>1st</option>
@@ -66,6 +69,9 @@ include_once(ROOT_PATH . '/include/navbar.php');
         </div>
     </div>
 </div>
+<script>
+	CKEDITOR.replace('notes');
+</script>
 <?php
 include(ROOT_PATH . '/include/footer.php');
 ?>

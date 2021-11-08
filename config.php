@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "Tosh");
+$conn = mysqli_connect("localhost", "root", "", "Toshs");
 if (!$conn) {
      die("Error connecting to database: " . mysqli_connect_error());
 }

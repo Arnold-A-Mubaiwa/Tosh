@@ -3,7 +3,7 @@ require('../config.php');
 include_once(ROOT_PATH . '/include/header.php');
 ?>
 <?php
-// include_once(ROOT_PATH . '/include/navbar.php');
+include_once(ROOT_PATH . '/include/navbar.php');
 ?>
 <?php
 $sql = "SELECT * FROM Videos WHERE PostID = ?";
@@ -39,9 +39,10 @@ if (isset($_POST['Module'])) {
     $Descrip  = $_POST['Description'];
     $Year  = $_POST['Year'];
     $faculty = $_POST['Faculty'];
+    $notes = $_POST['notes'];
     $status  = $_POST['Status'];
 
-	mysqli_query($conn, "UPDATE Videos SET  Module='$module', Link='$link',Description='$Descrip',UserID='$userID',Year='$Year',Faculty='$faculty',Status='$status' WHERE PostID=$PostID");
+	mysqli_query($conn, "UPDATE Videos SET  Module='$module', Link='$link',Descrip='$Descrip',Notes='$notes',UserID='$userID',Year='$Year',Faculty='$faculty',Statuses='$status' WHERE PostID='$PostID'");
 	
 }
 ?>
@@ -61,7 +62,10 @@ if (isset($_POST['Module'])) {
                         <input value="<?php echo $row['Link']; ?>" class="form-control border-dark" type="text" name="Link" required><br>
                     </div>
                     <div class="form-group"> <label for="Description">Description</label>
-                        <input value="<?php echo $row['Description']; ?>" class="form-control border-dark" type="text" name="Description" required><br>
+                        <input value="<?php echo $row['Descrip']; ?>" class="form-control border-dark" type="text" name="Description" required><br>
+                    </div>
+                    <div class="form-group"> <label for="Notes">Notes</label>
+                    <textarea class="form-control" name="notes" id="notes" cols="30" rows="10"></textarea>
                     </div>
                     <div class="form-group"><label for="Year">Year Of Study</label>
                     <select name="Year" class="form-control border-dark">
@@ -81,7 +85,6 @@ if (isset($_POST['Module'])) {
                     </div>
                     <div class="form-group pb-3"><label for="Status">Status</label>
                         <select name="Status" class="form-control border-dark">
-                         <option><?php echo $row['Status'] ?></option>
                              <option>Active</option>
                             <option>Inactive</option>
                         </select>
@@ -94,6 +97,10 @@ if (isset($_POST['Module'])) {
         </div>
     </div>
 </div>
+
+<script>
+	CKEDITOR.replace('notes');
+</script>
 <?php
 include(ROOT_PATH . '/include/footer.php');
 ?><

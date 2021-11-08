@@ -6,7 +6,7 @@
       <ul class="navbar-nav">
        
         <li class="nav-item">
-          <a class="nav-link dropdown-toggle" href="<?php echo BASE_URL."/index.php" ?>" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="<?php echo BASE_URL."/index.php"; session_abort(); ?>" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Log Out
           </a>
         </li>
