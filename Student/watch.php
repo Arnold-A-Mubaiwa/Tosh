@@ -111,7 +111,7 @@ if ($result1 = mysqli_query($conn, $sql)) {
       <div>
           <form>
               <input type="checkbox" name="" id="">By Clicking this checkbox you acknoledge that you have watched this video<br>
-              <input type="submit" value="Confirm">
+              <!-- <input type="submit" value="Confirm"> -->
           </form>
       </div>
     </div>
